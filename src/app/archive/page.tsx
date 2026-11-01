@@ -50,9 +50,9 @@ const archiveProjects: ArchiveProject[] = [
     category: "Predictive Modeling",
     title: "Ames Housing",
     description:
-      "Analisis regresi linear multivariat komprehensif terhadap 79 fitur properti untuk memprediksi nilai jual rumah secara akurat.",
-    highlight: "Cross-validated RMSE 0.114",
-    tags: ["Python", "Scikit-Learn", "Pandas", "Seaborn"],
+      "Analisis data mining dan prediksi harga rumah berbasis R Markdown melalui enam tahapan CRISP-DM.",
+    highlight: "End-to-end CRISP-DM report",
+    tags: ["R", "ggplot2", "dplyr", "R Markdown"],
     repoUrl: "https://github.com/zafiraryani",
   },
   {
@@ -60,9 +60,9 @@ const archiveProjects: ArchiveProject[] = [
     category: "Data Analytics",
     title: "Sleep Quality Insights",
     description:
-      "Studi eksplorasi korelasi multivariat antara durasi tidur, tingkat stres, dan aktivitas fisik berbasis survei gaya hidup.",
-    highlight: "K-Means clustering & ANOVA",
-    tags: ["R", "ggplot2", "tidyverse", "Quarto"],
+      "EDA terhadap 374 responden untuk memetakan hubungan tingkat stres, kualitas tidur, dan tekanan darah.",
+    highlight: "374 respondent records",
+    tags: ["Python", "pandas", "Seaborn", "scikit-learn"],
     repoUrl: "https://github.com/zafiraryani",
   },
   {

@@ -42,7 +42,7 @@ export default function BuildingInPublic() {
             </h2>
             <div>
               <a
-                href="https://github.com/zafiraryani"
+                href="https://github.com/Lehonci"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-[11px] text-[#F2F0EB] border-b border-white/20 pb-0.5 hover:text-[#A8242F] hover:border-[#A8242F] transition-all group font-sans"

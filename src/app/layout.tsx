@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Zafira Ryani Putri — Software Engineering & Data",
+  title: "Lehonci",
   description:
     "Mahasiswi Software Engineering IPB University yang berfokus pada data analytics, spatial data processing, serta data-driven AI automation.",
   keywords: [

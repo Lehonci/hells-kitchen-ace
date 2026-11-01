@@ -17,9 +17,9 @@ const leadershipExperience = [
   },
   {
     period: "2024—2025",
-    role: "Active Member",
+    role: "Member",
     org: "KEMALA IPB",
-    desc: "Berpartisipasi aktif dalam kegiatan Keluarga Mahasiswa Lampung di IPB University.",
+    desc: "Berpartisipasi dalam kegiatan Keluarga Mahasiswa Lampung di Sekolah Vokasi IPB University.",
   },
 ];
 

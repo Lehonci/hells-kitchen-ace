@@ -69,7 +69,7 @@ export default function ContactSection() {
                 kolaborasi riset AI, atau proyek WebGIS.
               </p>
               <div className="font-mono text-[11px] text-white/70 space-y-2">
-                <p>Email: zafiraryani@apps.ipb.ac.id</p>
+                <p>Email: zafiraryani@gmail.com</p>
                 <p>Location: Bogor & Jakarta, Indonesia</p>
               </div>
             </div>

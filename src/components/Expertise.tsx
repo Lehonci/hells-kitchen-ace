@@ -5,35 +5,15 @@ import React from "react";
 const capabilities = [
   {
     index: "01",
-    title: "Data Analytics & Modeling",
-    subtitle: "Turning raw records into clear, defensible insights.",
-    stack: "Python · R · SQL · pandas · NumPy · scikit-learn · EDA · CRISP-DM",
+    title: "Software Engineering",
+    subtitle: "Building dependable web interfaces, spatial systems, and AI-driven digital experiences.",
+    stack: "TypeScript · Next.js · React · Tailwind CSS · REST API · Unity · C# · Leaflet · OpenLayers · pgRouting · PostGIS · QGIS · Supabase · OpenCV · MediaPipe · Gemini API · Prompt Engineering · FFmpeg · WhisperX",
   },
   {
     index: "02",
-    title: "Data Engineering",
-    subtitle: "Designing reliable pipelines for data in motion.",
-    stack:
-      "PySpark · Apache Spark · Kafka · Docker · PostgreSQL · Real-time processing",
-  },
-  {
-    index: "03",
-    title: "Spatial Engineering & WebGIS",
-    subtitle: "Making location data queryable, fast, and useful.",
-    stack: "PostGIS · QGIS · Supabase · pgRouting · Leaflet · OpenLayers",
-  },
-  {
-    index: "04",
-    title: "AI, Computer Vision & Automation",
-    subtitle: "Connecting vision models and LLMs into practical workflows.",
-    stack:
-      "OpenCV · MediaPipe · Gemini API · Prompt Engineering · FFmpeg · WhisperX",
-  },
-  {
-    index: "05",
-    title: "Software, Web & AR Development",
-    subtitle: "Building dependable interfaces and immersive digital experiences.",
-    stack: "TypeScript · Next.js · React · Tailwind CSS · REST API · Unity · C#",
+    title: "Data & Analytics",
+    subtitle: "Designing reliable pipelines for data in motion and turning raw records into clear, defensible insights.",
+    stack: "PySpark · Apache Spark · Kafka · Docker · PostgreSQL · Real-time processing · Python · R · SQL · pandas · NumPy · scikit-learn · EDA · CRISP-DM",
   },
 ];
 
@@ -61,7 +41,7 @@ export default function Expertise() {
             </h2>
 
             {/* Circular Explore/Build Badge */}
-            <div className="mt-16 w-32 h-32 border border-white/20 rounded-full flex items-center justify-center p-4">
+            <div className="mt-16 w-32 h-32 border border-[#A8242F] rounded-full flex items-center justify-center p-4">
               <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-[#F2F0EB] text-center">
                 Explore / Build
               </span>
@@ -76,7 +56,7 @@ export default function Expertise() {
                 className="py-8 grid grid-cols-1 md:grid-cols-12 gap-4 items-start hover:bg-white/[0.015] transition-colors"
               >
                 {/* Index */}
-                <div className="md:col-span-1 font-mono text-[10px] text-white">
+                <div className="md:col-span-1 font-mono text-[10px] text-[#A8242F]">
                   {item.index}
                 </div>
 

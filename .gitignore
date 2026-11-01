@@ -38,3 +38,7 @@ figma_file_info.json
 tree_5_14.txt
 exact_portfolio_spec.txt
 
+# codegraph index
+.codegraph/
+
+
