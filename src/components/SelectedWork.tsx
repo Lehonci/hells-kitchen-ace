@@ -23,27 +23,27 @@ const selectedProjects: ProjectItem[] = [
       "Pipeline transaksi e-commerce bervolume tinggi untuk data cleaning, aggregation, dan customer segmentation berbasis RFM.",
     highlight: "Real-time ingestion architecture",
     tags: ["Kafka", "PySpark", "PostgreSQL", "Docker"],
-    repoUrl: "https://github.com/zafiraryani",
+    repoUrl: "https://github.com/Lehonci/analisis-olist-bigdata",
   },
   {
-    index: "04",
+    index: "02",
     category: "Predictive Modeling",
     title: "Ames Housing",
     description:
       "Analisis data mining dan prediksi harga rumah berbasis R Markdown melalui enam tahapan CRISP-DM.",
     highlight: "End-to-end CRISP-DM report",
     tags: ["R", "ggplot2", "dplyr", "R Markdown"],
-    repoUrl: "https://github.com/zafiraryani",
+    repoUrl: "https://github.com/Lehonci/ames-housing-data-mining",
   },
   {
-    index: "05",
+    index: "03",
     category: "Data Analytics",
     title: "Sleep Quality Insights",
     description:
       "EDA terhadap 374 responden untuk memetakan hubungan tingkat stres, kualitas tidur, dan tekanan darah.",
     highlight: "374 respondent records",
     tags: ["Python", "pandas", "Seaborn", "scikit-learn"],
-    repoUrl: "https://github.com/zafiraryani",
+    repoUrl: "https://github.com/Lehonci/sleep-quality-insights",
   },
 ];
 
@@ -70,9 +70,8 @@ export default function SelectedWork() {
             </h2>
           </div>
           <div className="lg:col-span-4 lg:pl-6">
-            <p className="text-[14px] leading-[24px] text-white/60">
-              Selected projects across streaming data, spatial systems, computer
-              vision, and predictive analytics.
+            <p className="text-[14px] leading-[24px] text-white/80">
+              Selected projects in software engineering and data analytics.
             </p>
           </div>
         </div>
@@ -86,7 +85,7 @@ export default function SelectedWork() {
             >
               {/* Left Column: Index + Category & Title (5 cols) */}
               <div className="lg:col-span-5 flex items-start gap-6 sm:gap-10">
-                <span className="font-mono text-[10px] text-white/35 pt-0.5 w-6 flex-shrink-0">
+                <span className="font-mono text-[10px] text-white/60 pt-0.5 w-6 flex-shrink-0">
                   {p.index}
                 </span>
                 <div>
@@ -101,17 +100,17 @@ export default function SelectedWork() {
 
               {/* Middle Column: Description & Highlight (4 cols) */}
               <div className="lg:col-span-4 flex flex-col justify-between pr-4">
-                <p className="text-[14px] leading-[24px] text-white/60 mb-3">
+                <p className="text-[14px] leading-[24px] text-white/80 mb-3">
                   {p.description}
                 </p>
-                <div className="font-mono text-[10px] text-white/35 uppercase tracking-[0.15em]">
+                <div className="font-mono text-[10px] text-white/50 uppercase tracking-[0.15em]">
                   {p.highlight}
                 </div>
               </div>
 
               {/* Right Column: Tags & Arrow button (3 cols) */}
               <div className="lg:col-span-3 flex items-start justify-between lg:justify-end gap-6 pt-0.5">
-                <div className="flex flex-wrap gap-x-4 gap-y-1.5 font-mono text-[10px] text-white/45 uppercase tracking-[0.14em] lg:justify-end">
+                <div className="flex flex-wrap gap-x-4 gap-y-1.5 font-mono text-[10px] text-white/50 uppercase tracking-[0.14em] lg:justify-end">
                   {p.tags.map((t) => (
                     <span key={t}>{t}</span>
                   ))}
@@ -137,7 +136,7 @@ export default function SelectedWork() {
             <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/40 block mb-2">
               The rest of the build log
             </span>
-            <p className="font-sans text-[14px] text-white/50">
+            <p className="font-sans text-[14px] text-white/80">
               More experiments, deployed interfaces, and source code.
             </p>
           </div>

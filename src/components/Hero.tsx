@@ -67,7 +67,7 @@ export default function Hero() {
 
               {/* Sub-label */}
               <div className="font-mono text-[11px] text-white/45 uppercase tracking-[0.2em] mb-4">
-                Software Engineering / Data
+                Software Engineering / Data Analytics
               </div>
 
               {/* Display Heading: Instrument Serif + Manrope */}
@@ -85,14 +85,12 @@ export default function Hero() {
             <div className="pt-10 mt-14 border-t border-white/10 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
               <div className="md:col-span-5">
                 <h2 className="text-[22px] sm:text-[24px] font-normal text-[#F2F0EB] leading-[1.2] tracking-tight">
-                  Engineering data into meaningful decisions.
+                  Code with purpose, data with direction.
                 </h2>
               </div>
               <div className="md:col-span-7 flex flex-col justify-between">
                 <p className="text-[14px] text-white/60 leading-[1.7] mb-6">
-                  Mahasiswi Software Engineering IPB University yang berfokus pada
-                  data analytics, spatial data processing, serta data-driven AI
-                  automation.
+                  Software Engineering student at IPB University with a dual focus on scalable software development and data analytics.
                 </p>
                 <div>
                   <Link
@@ -125,7 +123,7 @@ export default function Hero() {
 
             {/* Top metadata strip (Figma 5:439: 54px height, border-b border-white/25) */}
             <div className="relative z-10 flex items-center justify-between font-mono text-[9px] uppercase tracking-[0.18em] text-[#F2F0EB] px-5 sm:px-6 h-[54px] border-b border-white/25 bg-black/20 backdrop-blur-[1px]">
-              <span>Portfolio / 2026</span>
+              <span>Portofolio / 2026</span>
               <span>{timeString || "01 NOV 2026 • --:--:-- WIB"}</span>
             </div>
 

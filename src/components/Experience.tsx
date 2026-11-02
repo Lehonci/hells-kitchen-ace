@@ -11,9 +11,9 @@ const leadershipExperience = [
   },
   {
     period: "2025",
-    role: "Class Representative",
-    org: "Etika Profesi — TPL 61B, IPB University",
-    desc: "Menjembatani komunikasi akademis dosen–mahasiswa dan memimpin proyek sosial kunjungan tim ke panti asuhan.",
+    role: "Social Initiative Project",
+    org: "Etika Profesi — IPB University",
+    desc: "Mengelola publikasi digital dan media sosial untuk kampanye inisiatif sosial kunjungan ke panti asuhan.",
   },
   {
     period: "2024—2025",
@@ -25,7 +25,7 @@ const leadershipExperience = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="border-b border-white/[0.08] bg-[#0A0A0A] py-24 sm:py-32">
+    <section id="experience" className="border-b border-white/[0.08] bg-[#0A0A0A] py-20 sm:py-24">
       <div className="max-w-[1500px] mx-auto px-6 lg:px-12">
         {/* Section Label */}
         <div className="flex items-center gap-4 mb-16">
@@ -33,7 +33,7 @@ export default function Experience() {
             03
           </span>
           <span className="font-mono text-[10px] uppercase text-white tracking-[0.18em]">
-            Leadership & Experience
+            Experience
           </span>
           <div className="flex-grow h-px bg-white/[0.08]" />
         </div>
@@ -52,10 +52,9 @@ export default function Experience() {
             {leadershipExperience.map((item, idx) => (
               <article
                 key={idx}
-                className="py-10 grid grid-cols-1 md:grid-cols-12 gap-6 items-start hover:bg-white/[0.015] transition-colors"
-              >
+                className="py-10 grid grid-cols-1 md:grid-cols-12 gap-6 items-start hover:bg-white/[0.015] transition-colors">
                 {/* Period (2 cols) */}
-                <div className="md:col-span-2 font-mono text-[10px] text-white">
+                <div className="md:col-span-2 font-mono text-[10px] text-[#A8242F]">
                   {item.period}
                 </div>
 
