@@ -1,6 +1,8 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
 const leadershipExperience = [
   {
@@ -19,13 +21,16 @@ const leadershipExperience = [
     period: "2024—2025",
     role: "Member",
     org: "KEMALA IPB",
-    desc: "Berpartisipasi dalam kegiatan Keluarga Mahasiswa Lampung di Sekolah Vokasi IPB University.",
+    desc: "Anggota Keluarga Mahasiswa Lampung di Sekolah Vokasi IPB University.",
   },
 ];
 
 export default function Experience() {
   return (
-    <section id="experience" className="border-b border-white/[0.08] bg-[#0A0A0A] py-20 sm:py-24">
+    <section
+      id="experience"
+      className="border-b border-white/[0.08] bg-[#0A0A0A] py-20 sm:py-24"
+    >
       <div className="max-w-[1500px] mx-auto px-6 lg:px-12">
         {/* Section Label */}
         <div className="flex items-center gap-4 mb-16">
@@ -38,13 +43,26 @@ export default function Experience() {
           <div className="flex-grow h-px bg-white/[0.08]" />
         </div>
 
-        {/* Content Split: Left (Heading) & Right (Timeline Articles) */}
+        {/* Content Split: Left (Heading + Get to know me) & Right (Timeline Articles) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Column */}
-          <div className="lg:col-span-4">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[73.7px] leading-[0.95] font-normal tracking-[-0.06em] text-[#F2F0EB]">
-              Beyond the terminal.
-            </h2>
+          <div className="lg:col-span-4 flex flex-col justify-between">
+            <div>
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[73.7px] leading-[0.95] font-normal tracking-[-0.06em] text-[#F2F0EB] mb-6">
+                Beyond the terminal.
+              </h2>
+              <p className="text-[14px] leading-[24px] text-white/50 max-w-sm mb-8">
+                Ada juga versi saya yang hidup di luar project board, dataset, dan
+                deadline.
+              </p>
+              <Link
+                href="/downtime"
+                className="inline-flex items-center gap-2 font-sans text-[11px] uppercase tracking-[0.14em] text-[#F2F0EB] border-b border-white/30 pb-1 hover:text-[#A8242F] hover:border-[#A8242F] transition-all group"
+              >
+                <span>Get to know me</span>
+                <ArrowUpRight className="w-3.5 h-3.5 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </Link>
+            </div>
           </div>
 
           {/* Right Column: 3 Articles */}
@@ -52,7 +70,8 @@ export default function Experience() {
             {leadershipExperience.map((item, idx) => (
               <article
                 key={idx}
-                className="py-10 grid grid-cols-1 md:grid-cols-12 gap-6 items-start hover:bg-white/[0.015] transition-colors">
+                className="py-10 grid grid-cols-1 md:grid-cols-12 gap-6 items-start hover:bg-white/[0.015] transition-colors"
+              >
                 {/* Period (2 cols) */}
                 <div className="md:col-span-2 font-mono text-[10px] text-[#A8242F]">
                   {item.period}

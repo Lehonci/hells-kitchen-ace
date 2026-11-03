@@ -50,10 +50,10 @@ export default function Navbar() {
             Work Archive
           </Link>
           <Link
-            href="/offscreen"
+            href="/downtime"
             className="hover:text-[#A8242F] transition-colors"
           >
-            Off-Screen
+            Downtime
           </Link>
         </nav>
 
@@ -110,11 +110,11 @@ export default function Navbar() {
             Work Archive
           </Link>
           <Link
-            href="/offscreen"
+            href="/downtime"
             onClick={() => setMobileMenuOpen(false)}
             className="text-white/80 hover:text-white uppercase tracking-wider py-1"
           >
-            Off-Screen
+            Downtime
           </Link>
           <div className="pt-4 border-t border-white/[0.08]">
             <Link

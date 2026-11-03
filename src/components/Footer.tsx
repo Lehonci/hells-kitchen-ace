@@ -9,29 +9,21 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#0A0A0A] border-t border-white/[0.08] py-8">
-      <div className="max-w-[1500px] mx-auto px-6 lg:px-12 flex flex-col sm:flex-row items-center justify-between gap-4 font-sans text-[10px] text-white/70">
+      <div className="max-w-[1500px] mx-auto px-6 lg:px-12 flex items-center justify-between gap-4 font-mono text-[10px] text-white/60 uppercase tracking-[0.14em]">
         {/* Left: Copyright */}
         <div>© 2026 Lehonci</div>
 
-        {/* Right: Exact links from Figma */}
-        <div className="flex flex-wrap items-center gap-6">
-          <a
-            href="https://github.com/zafiraryani"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white hover:text-[#A8242F] transition-colors"
-          >
-            GitHub
-          </a>
-          <span>LinkedIn — available on request</span>
-          <span>Instagram — available on request</span>
-          <button
-            onClick={scrollToTop}
-            className="text-white hover:text-[#A8242F] transition-colors focus:outline-none"
-          >
-            Back to top ↑
-          </button>
-        </div>
+        {/* Right: Back to top button */}
+        <button
+          onClick={scrollToTop}
+          className="hover:text-[#A8242F] transition-colors flex items-center gap-1.5 focus:outline-none group"
+          aria-label="Scroll back to top"
+        >
+          <span>Back to top</span>
+          <span className="transform group-hover:-translate-y-0.5 transition-transform">
+            ↑
+          </span>
+        </button>
       </div>
     </footer>
   );

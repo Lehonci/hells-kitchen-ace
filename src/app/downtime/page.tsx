@@ -44,7 +44,7 @@ const figmaInterests: InterestItem[] = [
   },
 ];
 
-export default function OffScreenPage() {
+export default function DowntimePage() {
   return (
     <div className="py-20 min-h-screen bg-[#0A0A0A]">
       <div className="max-w-[1500px] mx-auto px-6 lg:px-12">
@@ -52,20 +52,20 @@ export default function OffScreenPage() {
         <div className="mb-12">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-white/70 hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-white/70 hover:text-white transition-colors group"
           >
-            <ArrowLeft className="w-3.5 h-3.5" />
-            <span>Back to professional side</span>
+            <ArrowLeft className="w-3.5 h-3.5 transform group-hover:-translate-x-1 transition-transform" />
+            <span>Back</span>
           </Link>
         </div>
 
         {/* Header */}
         <div className="border-b border-white/[0.08] pb-16 mb-16">
           <div className="font-mono text-[10px] text-[#A8242F] tracking-[0.18em] uppercase mb-4">
-            Off-screen
+            Downtime
           </div>
           <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[73.7px] leading-[0.95] font-normal tracking-[-0.06em] text-[#F2F0EB]">
-            Things I enjoy when the laptop is closed.
+            Things I dive into outside the terminal.
           </h1>
         </div>
 
@@ -113,12 +113,15 @@ export default function OffScreenPage() {
               Recommendations are welcome
             </span>
             <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-[60px] font-normal leading-tight tracking-tight text-[#F2F0EB] max-w-3xl">
-              Kalau selera kita nyambung, we already have something to talk about.
+              In shared frequencies, conversations find their rhythm.
             </h3>
           </div>
 
           <Link
             href="/#contact"
+            onClick={() => {
+              sessionStorage.setItem("scrollToSection", "contact");
+            }}
             className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-[#F2F0EB] border border-white/20 px-6 py-4 hover:border-[#A8242F] hover:text-[#A8242F] transition-all flex-shrink-0"
           >
             <span>Let’s connect</span>
@@ -129,3 +132,4 @@ export default function OffScreenPage() {
     </div>
   );
 }
+
