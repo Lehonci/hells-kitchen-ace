@@ -3,6 +3,8 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import DecryptedText from "./DecryptedText";
+import ScrollReveal from "./ScrollReveal";
 
 const leadershipExperience = [
   {
@@ -33,67 +35,78 @@ export default function Experience() {
     >
       <div className="max-w-[1500px] mx-auto px-6 lg:px-12">
         {/* Section Label */}
-        <div className="flex items-center gap-4 mb-16">
-          <span className="font-mono text-[10px] text-[#A8242F] tracking-[0.18em]">
-            03
-          </span>
-          <span className="font-mono text-[10px] uppercase text-white tracking-[0.18em]">
-            Experience
-          </span>
-          <div className="flex-grow h-px bg-white/[0.08]" />
-        </div>
+        <ScrollReveal direction="up" distance={16}>
+          <div className="flex items-center gap-4 mb-16">
+            <span className="font-mono text-[10px] text-[#A8242F] tracking-[0.18em]">
+              03
+            </span>
+            <span className="font-mono text-[10px] uppercase text-white tracking-[0.18em]">
+              <DecryptedText text="Experience" duration={700} />
+            </span>
+            <div className="flex-grow h-px bg-white/[0.08]" />
+          </div>
+        </ScrollReveal>
 
         {/* Content Split: Left (Heading + Get to know me) & Right (Timeline Articles) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Column */}
           <div className="lg:col-span-4 flex flex-col justify-between">
-            <div>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[73.7px] leading-[0.95] font-normal tracking-[-0.06em] text-[#F2F0EB] mb-6">
-                Beyond the terminal.
-              </h2>
-              <p className="text-[14px] leading-[24px] text-white/50 max-w-sm mb-8">
-                Ada juga versi saya yang hidup di luar project board, dataset, dan
-                deadline.
-              </p>
-              <Link
-                href="/downtime"
-                className="inline-flex items-center gap-2 font-sans text-[11px] uppercase tracking-[0.14em] text-[#F2F0EB] border-b border-white/30 pb-1 hover:text-[#A8242F] hover:border-[#A8242F] transition-all group"
-              >
-                <span>Get to know me</span>
-                <ArrowUpRight className="w-3.5 h-3.5 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </Link>
-            </div>
+            <ScrollReveal direction="up" delay={80} distance={20}>
+              <div>
+                <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[73.7px] leading-[0.95] font-normal tracking-[-0.06em] text-[#F2F0EB] mb-6">
+                  Beyond the terminal.
+                </h2>
+                <p className="text-[14px] leading-[24px] text-white/60 max-w-sm mb-8">
+                  Ada juga versi saya yang hidup di luar project board, dataset, dan
+                  deadline.
+                </p>
+                <Link
+                  href="/downtime"
+                  className="inline-flex items-center gap-2 font-sans text-[11px] uppercase tracking-[0.14em] text-[#F2F0EB] border-b border-white/30 pb-0.5 hover:text-[#A8242F] hover:border-[#A8242F] transition-colors group"
+                >
+                  <span>Get to know me</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </Link>
+              </div>
+            </ScrollReveal>
           </div>
 
           {/* Right Column: 3 Articles */}
           <div className="lg:col-span-8 divide-y divide-white/[0.08] border-t lg:border-t-0 border-white/[0.08]">
             {leadershipExperience.map((item, idx) => (
-              <article
-                key={idx}
-                className="py-10 grid grid-cols-1 md:grid-cols-12 gap-6 items-start hover:bg-white/[0.015] transition-colors"
-              >
-                {/* Period (2 cols) */}
-                <div className="md:col-span-2 font-mono text-[10px] text-[#A8242F]">
-                  {item.period}
-                </div>
+              <ScrollReveal key={idx} delay={120 + idx * 100} distance={20}>
+                <article
+                  className="relative py-10 px-4 sm:px-6 -mx-4 sm:-mx-6 grid grid-cols-1 md:grid-cols-12 gap-6 items-start hover:bg-white/[0.02] transition-all duration-300 group"
+                >
+                  {/* Left Accent Marker (Red Hairline on Hover) */}
+                  <span
+                    className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#A8242F] scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top pointer-events-none"
+                    aria-hidden="true"
+                  />
 
-                {/* Role & Org (5 cols) */}
-                <div className="md:col-span-5">
-                  <h3 className="text-[20px] font-normal text-[#F2F0EB] mb-1 tracking-tight">
-                    {item.role}
-                  </h3>
-                  <p className="text-[12px] text-white/70 leading-relaxed">
-                    {item.org}
-                  </p>
-                </div>
+                  {/* Period (2 cols) */}
+                  <div className="md:col-span-2 font-mono text-[10px] text-[#A8242F] group-hover:text-white transition-colors">
+                    {item.period}
+                  </div>
 
-                {/* Description (5 cols) */}
-                <div className="md:col-span-5">
-                  <p className="text-[14px] leading-[1.7] text-white">
-                    {item.desc}
-                  </p>
-                </div>
-              </article>
+                  {/* Role & Org (5 cols) */}
+                  <div className="md:col-span-5">
+                    <h3 className="text-[20px] font-normal text-[#F2F0EB] group-hover:text-white mb-1 tracking-tight transition-colors">
+                      {item.role}
+                    </h3>
+                    <p className="text-[12px] text-white/70 group-hover:text-white/90 leading-relaxed transition-colors">
+                      {item.org}
+                    </p>
+                  </div>
+
+                  {/* Description (5 cols) */}
+                  <div className="md:col-span-5">
+                    <p className="text-[14px] leading-[1.7] text-white/80 group-hover:text-white transition-colors">
+                      {item.desc}
+                    </p>
+                  </div>
+                </article>
+              </ScrollReveal>
             ))}
           </div>
         </div>

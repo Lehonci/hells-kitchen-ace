@@ -4,6 +4,9 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import DecryptedText from "./DecryptedText";
+import RoleRotator from "./RoleRotator";
+import ScrollReveal from "./ScrollReveal";
 
 export default function Hero() {
   const [timeString, setTimeString] = useState<string>("");
@@ -57,52 +60,60 @@ export default function Hero() {
 
             <div>
               {/* Top Row: Location & Status */}
-              <div className="flex items-center justify-between font-sans text-[10px] uppercase tracking-[0.18em] mb-8">
-                <span className="text-white/50">Bogor, Indonesia</span>
-                <span className="flex items-center gap-2 text-[#D9D9D9]">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#8B0000] inline-block animate-pulse-dot" />
-                  <span>Open to internship</span>
-                </span>
-              </div>
+              <ScrollReveal direction="down" distance={12} duration={500}>
+                <div className="flex items-center justify-between font-sans text-[10px] uppercase tracking-[0.18em] mb-8">
+                  <span className="text-white/50">Bogor, Indonesia</span>
+                  <span className="flex items-center gap-2 text-[#D9D9D9]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#8B0000] inline-block animate-pulse-dot" />
+                    <span>Open to internship</span>
+                  </span>
+                </div>
+              </ScrollReveal>
 
-              {/* Sub-label */}
-              <div className="font-mono text-[11px] text-white/45 uppercase tracking-[0.2em] mb-4">
-                Software Engineering / Data Analytics
-              </div>
+              {/* Sub-label: Dynamic Role Rotator with Blinking Red Cursor */}
+              <ScrollReveal direction="up" delay={100} distance={14} duration={600}>
+                <div className="font-mono text-[11px] text-white/55 uppercase tracking-[0.2em] mb-4">
+                  <RoleRotator />
+                </div>
+              </ScrollReveal>
 
-              {/* Display Heading: Instrument Serif + Manrope */}
-              <h1 className="select-none tracking-[-0.075em]">
-                <span className="font-serif italic text-[#9F1D28] text-6xl sm:text-7xl md:text-8xl lg:text-[120px] xl:text-[141px] leading-[0.85] font-normal block">
-                  Zafira
-                </span>
-                <span className="font-sans font-normal text-[#F2F0EB] text-6xl sm:text-7xl md:text-8xl lg:text-[120px] xl:text-[141px] leading-[0.88] block mt-1 sm:mt-2">
-                  Ryani Putri.
-                </span>
-              </h1>
+              {/* Display Heading: Instrument Serif + Manrope with Stagger Reveal */}
+              <ScrollReveal direction="up" delay={200} distance={20} duration={800}>
+                <h1 className="select-none tracking-[-0.075em]">
+                  <span className="font-serif italic text-[#9F1D28] text-6xl sm:text-7xl md:text-8xl lg:text-[120px] xl:text-[141px] leading-[0.85] font-normal block">
+                    Zafira
+                  </span>
+                  <span className="font-sans font-normal text-[#F2F0EB] text-6xl sm:text-7xl md:text-8xl lg:text-[120px] xl:text-[141px] leading-[0.88] block mt-1 sm:mt-2">
+                    Ryani Putri.
+                  </span>
+                </h1>
+              </ScrollReveal>
             </div>
 
-            {/* Bottom Statement Row */}
-            <div className="pt-10 mt-14 border-t border-white/10 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-              <div className="md:col-span-5">
-                <h2 className="text-[22px] sm:text-[24px] font-normal text-[#F2F0EB] leading-[1.2] tracking-tight">
-                  Code with purpose, data with direction.
-                </h2>
-              </div>
-              <div className="md:col-span-7 flex flex-col justify-between">
-                <p className="text-[14px] text-white/60 leading-[1.7] mb-6">
-                  Software Engineering student at IPB University with a dual focus on scalable software development and data analytics.
-                </p>
-                <div>
-                  <Link
-                    href="/#work"
-                    className="inline-flex items-center gap-2 text-[11px] text-[#F2F0EB] border-b border-white/30 pb-0.5 hover:text-[#A8242F] hover:border-[#A8242F] transition-all group font-sans uppercase tracking-[0.12em]"
-                  >
-                    <span>Explore selected work</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </Link>
+            {/* Bottom Statement Row with ScrollReveal */}
+            <ScrollReveal direction="up" delay={300} distance={20} duration={700}>
+              <div className="pt-10 mt-14 border-t border-white/10 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                <div className="md:col-span-5">
+                  <h2 className="text-[22px] sm:text-[24px] font-normal text-[#F2F0EB] leading-[1.2] tracking-tight">
+                    Code with purpose, data with direction.
+                  </h2>
+                </div>
+                <div className="md:col-span-7 flex flex-col justify-between">
+                  <p className="text-[14px] text-white/60 leading-[1.7] mb-6">
+                    Software Engineering student at IPB University with a dual focus on scalable software development and data analytics.
+                  </p>
+                  <div>
+                    <Link
+                      href="/#work"
+                      className="inline-flex items-center gap-2 text-[11px] text-[#F2F0EB] border-b border-white/30 pb-0.5 hover:text-[#A8242F] hover:border-[#A8242F] transition-colors group font-sans uppercase tracking-[0.12em]"
+                    >
+                      <span>Explore selected work</span>
+                      <ArrowUpRight className="w-3.5 h-3.5 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
 
           {/* Right Column / Sidebar (4 cols in Figma) */}
@@ -138,7 +149,11 @@ export default function Hero() {
                   Current target
                 </span>
                 <p className="text-[13px] sm:text-[14px] font-normal text-[#F2F0EB] leading-snug">
-                  Data Analyst / Data Engineer Internship
+                  <DecryptedText
+                    text="Data Analyst / Data Engineer Internship"
+                    duration={850}
+                    delay={400}
+                  />
                 </p>
               </div>
 

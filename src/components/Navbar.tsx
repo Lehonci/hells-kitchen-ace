@@ -24,34 +24,34 @@ export default function Navbar() {
         </Link>
 
         {/* Center: Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-10 text-[11px] font-sans uppercase tracking-[0.18em] text-white">
+        <nav className="hidden md:flex items-center gap-10 text-[11px] font-sans uppercase tracking-[0.18em] text-white/80">
           <Link
             href="/#work"
-            className="hover:text-[#A8242F] transition-colors"
+            className="relative pb-1 hover:text-white transition-colors after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-[#A8242F] after:origin-left after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
           >
             Selected Work
           </Link>
           <Link
             href="/#expertise"
-            className="hover:text-[#A8242F] transition-colors"
+            className="relative pb-1 hover:text-white transition-colors after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-[#A8242F] after:origin-left after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
           >
             Expertise
           </Link>
           <Link
             href="/#experience"
-            className="hover:text-[#A8242F] transition-colors"
+            className="relative pb-1 hover:text-white transition-colors after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-[#A8242F] after:origin-left after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
           >
             Experience
           </Link>
           <Link
             href="/archive"
-            className="hover:text-[#A8242F] transition-colors"
+            className="relative pb-1 hover:text-white transition-colors after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-[#A8242F] after:origin-left after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
           >
             Work Archive
           </Link>
           <Link
             href="/downtime"
-            className="hover:text-[#A8242F] transition-colors"
+            className="relative pb-1 hover:text-white transition-colors after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-[#A8242F] after:origin-left after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
           >
             Downtime
           </Link>

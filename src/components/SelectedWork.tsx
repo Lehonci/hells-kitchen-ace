@@ -3,6 +3,8 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import DecryptedText from "./DecryptedText";
+import ScrollReveal from "./ScrollReveal";
 
 interface ProjectItem {
   index: string;
@@ -52,102 +54,115 @@ export default function SelectedWork() {
     <section id="work" className="border-b border-white/10 bg-[#0A0A0A] py-24 sm:py-32">
       <div className="max-w-[1500px] mx-auto px-4 sm:px-8">
         {/* Section Label */}
-        <div className="flex items-center gap-4 mb-16">
-          <span className="font-mono text-[10px] text-[#A8242F] tracking-[0.18em]">
-            01
-          </span>
-          <span className="font-mono text-[10px] uppercase text-white tracking-[0.18em]">
-            Selected Work
-          </span>
-          <div className="flex-grow h-px bg-white/10" />
-        </div>
+        <ScrollReveal direction="up" distance={16}>
+          <div className="flex items-center gap-4 mb-16">
+            <span className="font-mono text-[10px] text-[#A8242F] tracking-[0.18em]">
+              01
+            </span>
+            <span className="font-mono text-[10px] uppercase text-white tracking-[0.18em]">
+              <DecryptedText text="Selected Work" duration={700} />
+            </span>
+            <div className="flex-grow h-px bg-white/10" />
+          </div>
+        </ScrollReveal>
 
         {/* Heading & Subtitle */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end pb-12 border-b border-white/10 mb-0">
-          <div className="lg:col-span-8">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[73.7px] leading-[0.95] font-normal tracking-[-0.06em] text-[#F2F0EB]">
-              Systems built to make data move.
-            </h2>
+        <ScrollReveal direction="up" delay={80} distance={20}>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end pb-12 border-b border-white/10 mb-0">
+            <div className="lg:col-span-8">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[73.7px] leading-[0.95] font-normal tracking-[-0.06em] text-[#F2F0EB]">
+                Systems built to make data move.
+              </h2>
+            </div>
+            <div className="lg:col-span-4 lg:pl-6">
+              <p className="text-[14px] leading-[24px] text-white/80">
+                Selected projects in software engineering and data analytics.
+              </p>
+            </div>
           </div>
-          <div className="lg:col-span-4 lg:pl-6">
-            <p className="text-[14px] leading-[24px] text-white/80">
-              Selected projects in software engineering and data analytics.
-            </p>
-          </div>
-        </div>
+        </ScrollReveal>
 
-        {/* Projects Rows */}
+        {/* Projects Rows with Staggered Scroll & Brutalist Hover Effects */}
         <div className="divide-y divide-white/10 border-b border-white/10">
-          {selectedProjects.map((p) => (
-            <article
-              key={p.index}
-              className="py-11 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start hover:bg-white/[0.015] transition-colors group"
-            >
-              {/* Left Column: Index + Category & Title (5 cols) */}
-              <div className="lg:col-span-5 flex items-start gap-6 sm:gap-10">
-                <span className="font-mono text-[10px] text-white/60 pt-0.5 w-6 flex-shrink-0">
-                  {p.index}
-                </span>
-                <div>
-                  <span className="font-sans text-[10px] uppercase text-[#A8242F] tracking-[0.18em] block mb-2">
-                    {p.category}
+          {selectedProjects.map((p, idx) => (
+            <ScrollReveal key={p.index} delay={120 + idx * 100} distance={24}>
+              <article className="relative py-11 px-4 sm:px-6 -mx-4 sm:-mx-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start hover:bg-white/[0.02] transition-all duration-300 group">
+                {/* Left Accent Marker (Red Hairline on Hover) */}
+                <span
+                  className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#A8242F] scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top pointer-events-none"
+                  aria-hidden="true"
+                />
+
+                {/* Left Column: Index + Category & Title (5 cols) */}
+                <div className="lg:col-span-5 flex items-start gap-6 sm:gap-10">
+                  <span className="font-mono text-[10px] text-white/60 group-hover:text-[#A8242F] pt-0.5 w-6 flex-shrink-0 transition-colors">
+                    {p.index}
                   </span>
-                  <h3 className="text-2xl sm:text-[30px] font-normal leading-[1.2] tracking-[-0.03em] text-[#F2F0EB] group-hover:text-white transition-colors">
-                    {p.title}
-                  </h3>
-                </div>
-              </div>
-
-              {/* Middle Column: Description & Highlight (4 cols) */}
-              <div className="lg:col-span-4 flex flex-col justify-between pr-4">
-                <p className="text-[14px] leading-[24px] text-white/80 mb-3">
-                  {p.description}
-                </p>
-                <div className="font-mono text-[10px] text-white/50 uppercase tracking-[0.15em]">
-                  {p.highlight}
-                </div>
-              </div>
-
-              {/* Right Column: Tags & Arrow button (3 cols) */}
-              <div className="lg:col-span-3 flex items-start justify-between lg:justify-end gap-6 pt-0.5">
-                <div className="flex flex-wrap gap-x-4 gap-y-1.5 font-mono text-[10px] text-white/50 uppercase tracking-[0.14em] lg:justify-end">
-                  {p.tags.map((t) => (
-                    <span key={t}>{t}</span>
-                  ))}
+                  <div>
+                    <span className="font-sans text-[10px] uppercase text-[#A8242F] tracking-[0.18em] block mb-2 font-medium">
+                      {p.category}
+                    </span>
+                    <h3 className="text-2xl sm:text-[30px] font-normal leading-[1.2] tracking-[-0.03em] text-[#F2F0EB] group-hover:text-white transition-colors">
+                      {p.title}
+                    </h3>
+                  </div>
                 </div>
 
-                <a
-                  href={p.repoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-11 h-11 border border-white/20 flex items-center justify-center text-[#F2F0EB] hover:border-[#A8242F] hover:text-[#A8242F] transition-all flex-shrink-0 group/btn"
-                  aria-label={`View ${p.title} repository`}
-                >
-                  <ArrowUpRight className="w-4 h-4 transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
-                </a>
-              </div>
-            </article>
+                {/* Middle Column: Description & Highlight (4 cols) */}
+                <div className="lg:col-span-4 flex flex-col justify-between pr-4">
+                  <p className="text-[14px] leading-[24px] text-white/80 group-hover:text-white/95 transition-colors mb-3">
+                    {p.description}
+                  </p>
+                  <div className="font-mono text-[10px] text-white/50 group-hover:text-white/70 uppercase tracking-[0.15em] transition-colors">
+                    {p.highlight}
+                  </div>
+                </div>
+
+                {/* Right Column: Tags & Arrow button (3 cols) */}
+                <div className="lg:col-span-3 flex items-start justify-between lg:justify-end gap-6 pt-0.5">
+                  <div className="flex flex-wrap gap-x-4 gap-y-1.5 font-mono text-[10px] text-white/50 group-hover:text-white/70 uppercase tracking-[0.14em] lg:justify-end transition-colors">
+                    {p.tags.map((t) => (
+                      <span key={t} className="hover:text-white transition-colors">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+
+                  <a
+                    href={p.repoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-11 h-11 border border-white/20 flex items-center justify-center text-[#F2F0EB] group-hover:border-[#A8242F] group-hover:bg-[#A8242F]/10 group-hover:text-[#A8242F] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all flex-shrink-0"
+                    aria-label={`View ${p.title} repository`}
+                  >
+                    <ArrowUpRight className="w-4 h-4" />
+                  </a>
+                </div>
+              </article>
+            </ScrollReveal>
           ))}
         </div>
 
         {/* Bottom Card: The rest of the build log */}
-        <div className="mt-12 border border-white/10 p-8 sm:p-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 bg-[#0A0A0A]">
-          <div>
-            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/40 block mb-2">
-              The rest of the build log
-            </span>
-            <p className="font-sans text-[14px] text-white/80">
-              More experiments, deployed interfaces, and source code.
-            </p>
+        <ScrollReveal delay={200} distance={20}>
+          <div className="mt-12 border border-white/10 p-8 sm:p-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 bg-[#0A0A0A] hover:border-white/25 transition-colors group/card">
+            <div>
+              <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/40 block mb-2 group-hover/card:text-[#A8242F] transition-colors">
+                The rest of the build log
+              </span>
+              <p className="font-sans text-[14px] text-white/80">
+                More experiments, deployed interfaces, and source code.
+              </p>
+            </div>
+            <Link
+              href="/archive"
+              className="inline-flex items-center gap-2 font-sans text-[11px] uppercase tracking-[0.14em] text-[#F2F0EB] hover:text-[#A8242F] border-b border-white/20 pb-0.5 hover:border-[#A8242F] transition-all flex-shrink-0 group/link"
+            >
+              <span>See all work</span>
+              <span className="transform group-hover/link:translate-x-1.5 transition-transform">→</span>
+            </Link>
           </div>
-          <Link
-            href="/archive"
-            className="inline-flex items-center gap-2 font-sans text-[11px] uppercase tracking-[0.14em] text-[#F2F0EB] hover:text-[#A8242F] border-b border-white/20 pb-0.5 hover:border-[#A8242F] transition-all flex-shrink-0 group"
-          >
-            <span>See all work</span>
-            <span className="transform group-hover:translate-x-1 transition-transform">→</span>
-          </Link>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );
