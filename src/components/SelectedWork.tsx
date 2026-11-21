@@ -3,8 +3,10 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { motion } from "framer-motion";
 import DecryptedText from "./DecryptedText";
 import ScrollReveal from "./ScrollReveal";
+import { LineReveal, SectionRule } from "./MotionPrimitives";
 
 interface ProjectItem {
   index: string;
@@ -54,7 +56,7 @@ export default function SelectedWork() {
     <section id="work" className="border-b border-white/10 bg-[#0A0A0A] py-24 sm:py-32">
       <div className="max-w-[1500px] mx-auto px-4 sm:px-8">
         {/* Section Label */}
-        <ScrollReveal direction="up" distance={16}>
+        <ScrollReveal direction="up" distance={14}>
           <div className="flex items-center gap-4 mb-16">
             <span className="font-mono text-[10px] text-[#A8242F] tracking-[0.18em]">
               01
@@ -62,31 +64,35 @@ export default function SelectedWork() {
             <span className="font-mono text-[10px] uppercase text-white tracking-[0.18em]">
               <DecryptedText text="Selected Work" duration={700} />
             </span>
-            <div className="flex-grow h-px bg-white/10" />
+            <SectionRule className="bg-white/10" />
           </div>
         </ScrollReveal>
 
         {/* Heading & Subtitle */}
-        <ScrollReveal direction="up" delay={80} distance={20}>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end pb-12 border-b border-white/10 mb-0">
-            <div className="lg:col-span-8">
-              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[73.7px] leading-[0.95] font-normal tracking-[-0.06em] text-[#F2F0EB]">
-                Systems built to make data move.
-              </h2>
-            </div>
-            <div className="lg:col-span-4 lg:pl-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end pb-12 border-b border-white/10 mb-0">
+          <div className="lg:col-span-8">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[73.7px] leading-[0.95] font-normal tracking-[-0.06em] text-[#F2F0EB]">
+              <LineReveal text="Systems built to make data move." />
+            </h2>
+          </div>
+          <div className="lg:col-span-4 lg:pl-6">
+            <ScrollReveal direction="up" delay={140} distance={14} blur>
               <p className="text-[14px] leading-[24px] text-white/80">
                 Selected projects in software engineering and data analytics.
               </p>
-            </div>
+            </ScrollReveal>
           </div>
-        </ScrollReveal>
+        </div>
 
-        {/* Projects Rows with Staggered Scroll & Brutalist Hover Effects */}
+        {/* Projects Rows with Staggered Spring & Brutalist Hover Physics */}
         <div className="divide-y divide-white/10 border-b border-white/10">
           {selectedProjects.map((p, idx) => (
-            <ScrollReveal key={p.index} delay={120 + idx * 100} distance={24}>
-              <article className="relative py-11 px-4 sm:px-6 -mx-4 sm:-mx-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start hover:bg-white/[0.02] transition-all duration-300 group">
+            <ScrollReveal key={p.index} delay={80 + idx * 90} distance={22} blur>
+              <motion.article
+                whileHover={{ x: 4 }}
+                transition={{ type: "spring", stiffness: 260, damping: 24 }}
+                className="relative py-11 px-4 sm:px-6 -mx-4 sm:-mx-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start hover:bg-white/[0.025] transition-colors duration-300 group"
+              >
                 {/* Left Accent Marker (Red Hairline on Hover) */}
                 <span
                   className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#A8242F] scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top pointer-events-none"
@@ -95,7 +101,7 @@ export default function SelectedWork() {
 
                 {/* Left Column: Index + Category & Title (5 cols) */}
                 <div className="lg:col-span-5 flex items-start gap-6 sm:gap-10">
-                  <span className="font-mono text-[10px] text-white/60 group-hover:text-[#A8242F] pt-0.5 w-6 flex-shrink-0 transition-colors">
+                  <span className="font-mono text-[10px] text-white/60 group-hover:text-[#A8242F] pt-0.5 w-6 flex-shrink-0 transition-colors tabular-nums">
                     {p.index}
                   </span>
                   <div>
@@ -120,7 +126,7 @@ export default function SelectedWork() {
 
                 {/* Right Column: Tags & Arrow button (3 cols) */}
                 <div className="lg:col-span-3 flex items-start justify-between lg:justify-end gap-6 pt-0.5">
-                  <div className="flex flex-wrap gap-x-4 gap-y-1.5 font-mono text-[10px] text-white/50 group-hover:text-white/70 uppercase tracking-[0.14em] lg:justify-end transition-colors">
+                  <div className="flex flex-wrap gap-x-4 gap-y-1.5 font-mono text-[10px] text-white/50 group-hover:text-white/75 uppercase tracking-[0.14em] lg:justify-end transition-colors">
                     {p.tags.map((t) => (
                       <span key={t} className="hover:text-white transition-colors">
                         {t}
@@ -128,24 +134,31 @@ export default function SelectedWork() {
                     ))}
                   </div>
 
-                  <a
+                  <motion.a
                     href={p.repoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-11 h-11 border border-white/20 flex items-center justify-center text-[#F2F0EB] group-hover:border-[#A8242F] group-hover:bg-[#A8242F]/10 group-hover:text-[#A8242F] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all flex-shrink-0"
+                    whileHover={{ scale: 1.06 }}
+                    whileTap={{ scale: 0.94 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    className="w-11 h-11 border border-white/20 flex items-center justify-center text-[#F2F0EB] group-hover:border-[#A8242F] group-hover:bg-[#A8242F]/10 group-hover:text-[#A8242F] transition-colors flex-shrink-0"
                     aria-label={`View ${p.title} repository`}
                   >
-                    <ArrowUpRight className="w-4 h-4" />
-                  </a>
+                    <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </motion.a>
                 </div>
-              </article>
+              </motion.article>
             </ScrollReveal>
           ))}
         </div>
 
         {/* Bottom Card: The rest of the build log */}
-        <ScrollReveal delay={200} distance={20}>
-          <div className="mt-12 border border-white/10 p-8 sm:p-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 bg-[#0A0A0A] hover:border-white/25 transition-colors group/card">
+        <ScrollReveal delay={180} distance={20} blur>
+          <motion.div
+            whileHover={{ y: -2 }}
+            transition={{ type: "spring", stiffness: 260, damping: 22 }}
+            className="mt-12 border border-white/10 p-8 sm:p-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 bg-[#0A0A0A] hover:border-white/25 transition-colors group/card"
+          >
             <div>
               <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/40 block mb-2 group-hover/card:text-[#A8242F] transition-colors">
                 The rest of the build log
@@ -161,7 +174,7 @@ export default function SelectedWork() {
               <span>See all work</span>
               <span className="transform group-hover/link:translate-x-1.5 transition-transform">→</span>
             </Link>
-          </div>
+          </motion.div>
         </ScrollReveal>
       </div>
     </section>

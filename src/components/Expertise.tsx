@@ -1,8 +1,10 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
 import DecryptedText from "./DecryptedText";
 import ScrollReveal from "./ScrollReveal";
+import { LineReveal, SectionRule } from "./MotionPrimitives";
 import {
   SiPostgresql,
   SiQgis,
@@ -64,7 +66,7 @@ export default function Expertise() {
     >
       <div className="max-w-[1500px] mx-auto px-6 lg:px-12 pb-20 sm:pb-28">
         {/* Section Label */}
-        <ScrollReveal direction="up" distance={16}>
+        <ScrollReveal direction="up" distance={14}>
           <div className="flex items-center gap-4 mb-16">
             <span className="font-mono text-[10px] text-[#A8242F] tracking-[0.18em]">
               02
@@ -72,7 +74,7 @@ export default function Expertise() {
             <span className="font-mono text-[10px] uppercase text-white tracking-[0.18em]">
               <DecryptedText text="Core Technologies" duration={700} />
             </span>
-            <div className="flex-grow h-px bg-white/[0.08]" />
+            <SectionRule className="bg-white/[0.08]" />
           </div>
         </ScrollReveal>
 
@@ -80,18 +82,20 @@ export default function Expertise() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Column (roughly 4 cols) */}
           <div className="lg:col-span-4 flex flex-col justify-between min-h-[280px]">
-            <ScrollReveal direction="up" delay={80} distance={20}>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[73.7px] leading-[0.95] font-normal tracking-[-0.06em] text-[#F2F0EB]">
-                Architecture shaped by logic, driven by insights.
-              </h2>
-            </ScrollReveal>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[73.7px] leading-[0.95] font-normal tracking-[-0.06em] text-[#F2F0EB]">
+              <LineReveal text="Architecture shaped by logic, driven by insights." />
+            </h2>
           </div>
 
           {/* Right Column (8 cols): Rows */}
           <div className="lg:col-span-8 divide-y divide-white/[0.08] border-t lg:border-t-0 border-white/[0.08]">
             {capabilities.map((item, idx) => (
-              <ScrollReveal key={item.index} delay={120 + idx * 100} distance={20}>
-                <div className="relative py-8 px-4 sm:px-6 -mx-4 sm:-mx-6 grid grid-cols-1 md:grid-cols-12 gap-4 items-start hover:bg-white/[0.02] transition-all duration-300 group">
+              <ScrollReveal key={item.index} delay={100 + idx * 100} distance={20} blur>
+                <motion.div
+                  whileHover={{ x: 4 }}
+                  transition={{ type: "spring", stiffness: 260, damping: 24 }}
+                  className="relative py-8 px-4 sm:px-6 -mx-4 sm:-mx-6 grid grid-cols-1 md:grid-cols-12 gap-4 items-start hover:bg-white/[0.025] transition-colors duration-300 group"
+                >
                   {/* Left Accent Marker (Red Hairline on Hover) */}
                   <span
                     className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#A8242F] scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top pointer-events-none"
@@ -119,7 +123,7 @@ export default function Expertise() {
                       {item.stack}
                     </p>
                   </div>
-                </div>
+                </motion.div>
               </ScrollReveal>
             ))}
           </div>

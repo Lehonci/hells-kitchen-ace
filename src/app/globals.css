@@ -15,7 +15,6 @@
 }
 
 html {
-  scroll-behavior: smooth;
   background-color: #0A0A0A;
   color: #F2F0EB;
 }
@@ -48,4 +47,12 @@ body {
 
 .border-figma {
   border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Hide native OS cursor across all elements when custom reticle cursor is active */
+html.custom-cursor-active,
+html.custom-cursor-active *,
+html.custom-cursor-active *::before,
+html.custom-cursor-active *::after {
+  cursor: none !important;
 }
